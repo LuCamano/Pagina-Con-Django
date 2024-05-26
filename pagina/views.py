@@ -30,8 +30,10 @@ def loginV(request):
         if user is not None:
             login(request, user)
             return redirect('index')
+        else:
+            return redirect('login')
     else:
-        return redirect('login')
+        return render(request, 'login.html', {})
 
 def logoutV(request):
     logout(request)
