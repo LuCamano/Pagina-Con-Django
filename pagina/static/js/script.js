@@ -1,9 +1,14 @@
 function cambiarValor(idInput, incremento) {
     const input = document.getElementById(idInput);
     const valorActual = parseInt(input.value);
-    const nuevoValor = Math.max(valorActual + incremento, 0);
+    const nuevoValor = Math.max(0, Math.min(valorActual + incremento, 10));
     input.value = nuevoValor;
 }
+
+$(".contador_producto").keydown(function (e) { 
+  e.preventDefault();
+});
+
 (() => {
     "use strict";
   // Fetch all the forms we want to apply custom Bootstrap validation styles to

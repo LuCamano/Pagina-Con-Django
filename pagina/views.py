@@ -6,6 +6,7 @@ from django.contrib.auth.decorators import login_required
 def index(request):
     return render(request, 'index.html', {})
 
+@login_required
 def admin(request):
     return render(request, 'admin.html', {})
 
@@ -19,22 +20,3 @@ def perfil(request):
 def producto(request):
     return render(request, 'producto.html', {})
 
-def registrarse(request):
-    return render(request, 'registrarse.html', {})
-
-def loginV(request):
-    if request.method == 'POST':
-        username = request.POST['username']
-        password = request.POST['password']
-        user = authenticate(request, username=username, password=password)
-        if user is not None:
-            login(request, user)
-            return redirect('index')
-        else:
-            return redirect('login')
-    else:
-        return render(request, 'login.html', {})
-
-def logoutV(request):
-    logout(request)
-    return redirect('index')

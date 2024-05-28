@@ -1,0 +1,41 @@
+{% extends "layouts/base.html" %}
+
+{% load static %}
+
+{% block title %}Iniciar Sesión{% endblock %}
+
+{% block content %}
+    <div class="container">
+        <div class="col-12 col-md-8 col-lg-6 position-relative top-50 start-50 translate-middle-x">
+            <div class="my-5 card rounded-0" data-bs-theme="dark">
+                <div class="card-header">
+                    <h2 class="text-center">Iniciar Sesión</h2>
+                </div>
+                <form class="px-4 py-3 needs-validation" method="post" novalidate>
+                    {% csrf_token %}
+                    <div class="mb-3">
+                        <label for="correo" class="form-label">Correo</label>
+                        <input type="email" class="form-control rounded-0" id="correo" name="email" placeholder="juanito@mail.com" required>
+                    </div>
+                    <div class="mb-3">
+                        <label for="password" class="form-label">Contraseña</label>
+                        <input type="password" class="form-control rounded-0" id="password" name="password" placeholder="*********" required>
+                        <a class="text-nowrap" href="#">¿Olvidaste tu contraseña?</a>
+                    </div>
+                    <div class="mb-3">
+                        <div class="form-check">
+                            <input type="checkbox" class="form-check-input" id="remember" name="remember">
+                            <label class="form-check-label" for="remember">
+                                Recordar
+                            </label>
+                        </div>
+                    </div>
+                    <button type="submit" class="btn btn-success rounded-0">Iniciar Sesión</button>
+                </form>
+                <div class="card-footer">
+                    <p class="px-4">¿No tienes una cuenta? <a href="{% url "registrarse" %}">Registrarse</a></p>
+                </div>
+            </div>
+        </div>
+    </div>
+{% endblock %}

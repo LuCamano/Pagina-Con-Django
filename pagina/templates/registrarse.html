@@ -11,7 +11,8 @@
                 <div class="card-header">
                     <h2 class="text-center">Registrarse</h2>
                 </div>
-                <form class="d-flex flex-column needs-validation px-4 py-3 card-body text-center" action="{% url "index" %}" method="post" novalidate>
+                <form class="d-flex flex-column needs-validation px-4 py-3 card-body text-center" method="post" novalidate>
+                    {% csrf_token %}
                     <div class="row">
                         <div class="col-6">
                             <div class="mb-3">
@@ -30,19 +31,19 @@
                     </div>
                     <div class="mb-3">
                         <label for="rutUser" class="form-label">Rut *</label>
-                        <input type="text" class="form-control validar-rut rounded-0" id="rutUser" name="rutUser" placeholder="11.222.333-k" maxlength="10" required>
+                        <input type="text" class="form-control validar-rut rounded-0" id="rutUser" name="run" placeholder="11.222.333-k" maxlength="10" required>
                         <div class="invalid-feedback">Ingrese un rut válido</div>
                     </div>
                     <div class="mb-3">
                         <label for="correoRegistro" class="form-label">E-mail *</label>
-                        <input type="email" class="form-control rounded-0" name="correoRegistro" id="correoRegistro" placeholder="Ejemplo: Juanito@mail.cl" required/>
+                        <input type="email" class="form-control rounded-0" name="email" id="correoRegistro" placeholder="Ejemplo: Juanito@mail.cl" required/>
                         <div class="invalid-feedback">Por favor ingrese un correo válido</div>
                     </div>
                     <div class="mb-3">
                         <label for="telNum" class="form-label">Teléfono *</label>
                         <div class="input-group">
                             <span class="input-group-text rounded-0" id="codPais">+56</span>
-                            <input type="tel" class="entrada-numeros form-control rounded-0" name="telNum" id="telNum" aria-describedby="codPais" placeholder="Ej: 987654321" pattern="[0-9]{9}" inputmode="tel" maxlength="10" required/>
+                            <input type="tel" class="entrada-numeros form-control rounded-0" name="telefono" id="telNum" aria-describedby="codPais" placeholder="Ej: 987654321" pattern="[0-9]{9}" inputmode="tel" maxlength="9" required/>
                             <div class="invalid-feedback">Ingrese un teléfono valido</div>
                         </div>
                     </div>
@@ -54,12 +55,12 @@
                     </div>
                     <div class="mb-3">
                         <label for="pass" class="form-label">Contraseña *</label>
-                        <input type="password" class="form-control rounded-0" name="pass" id="pass" placeholder="**********" required/>
+                        <input type="password" class="form-control rounded-0" name="password1" id="pass" placeholder="**********" required/>
                         <div id="clave-no-valida" class="invalid-feedback">Ingrese una contraseña válida</div>
                     </div>
                     <div class="mb-3">
                         <label for="Re-pass" class="form-label">Confirmar contraseña *</label>
-                        <input type="password" class="form-control rounded-0" name="Re-pass" id="Re-pass" placeholder="**********" required/>
+                        <input type="password" class="form-control rounded-0" name="password2" id="Re-pass" placeholder="**********" required/>
                         <div class="invalid-feedback">Las contraseñas no coinciden</div>
                     </div>
                     <hr>
