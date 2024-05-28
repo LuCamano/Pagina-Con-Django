@@ -1,7 +1,7 @@
 function cambiarValor(idInput, incremento) {
     const input = document.getElementById(idInput);
     const valorActual = parseInt(input.value);
-    const nuevoValor = Math.max(0, Math.min(valorActual + incremento, 10));
+    const nuevoValor = Math.max(1, Math.min(valorActual + incremento, 10));
     input.value = nuevoValor;
 }
 
