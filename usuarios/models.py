@@ -20,13 +20,13 @@ class UsuarioTM(AbstractBaseUser):
     '''
     Modelo personalizado de usuario
     '''
-    email = models.EmailField('Ingresar correo: ', unique=True)
-    nombre = models.CharField('Nombre: ',max_length=50, null=False, blank=False)
-    apellido = models.CharField('Apellido: ',max_length=50, null=False, blank=False)
-    direccion = models.CharField('Dirección: ',max_length=200, null=False, blank=False)
-    telefono = models.IntegerField('Teléfono: ', null=False, blank=False)
-    imagen = models.ImageField('Imagen de perfil: ', upload_to='usuarios', null=True, blank=True)
-    run = models.CharField('Rut: ',max_length=10, unique=True, primary_key=True)  # Rol Único Tributario
+    email = models.EmailField('Ingresar correo', unique=True)
+    nombre = models.CharField('Nombre',max_length=50, null=False, blank=False)
+    apellido = models.CharField('Apellido',max_length=50, null=False, blank=False)
+    direccion = models.CharField('Dirección',max_length=200, null=False, blank=False)
+    telefono = models.IntegerField('Teléfono', null=False, blank=False)
+    imagen = models.ImageField('Imagen de perfil', upload_to='usuarios', null=True, blank=True)
+    run = models.CharField('Rut',max_length=10, unique=True, primary_key=True)  # Rol Único Tributario
     es_admin = models.BooleanField(default=False)
     # Agrega otros campos personalizados según tus necesidades
 
