@@ -12,8 +12,6 @@ class Producto(models.Model):
     stock = models.IntegerField('Stock', null=False, blank=False)
     imagen = models.ImageField('Imagen de producto', upload_to='productos', null=True, blank=True)
     # Agrega otros campos personalizados según tus necesidades
-
-    REQUIRED_FIELDS = ['nombre', 'precio', 'stock']
     
     def __str__(self):
         return self.nombre
@@ -26,7 +24,6 @@ class Socket(models.Model):
     nombre = models.CharField('Nombre',max_length=100, null=False, blank=False)
     # Agrega otros campos personalizados según tus necesidades
 
-    REQUIRED_FIELDS = ['nombre']
     
     def __str__(self):
         return self.nombre
@@ -38,13 +35,10 @@ class Cpu(Producto):
     turbo = models.FloatField('Frecuencia turbo', null=False, blank=False)
     nucleos = models.IntegerField('Núcleos', null=False, blank=False)
     hilos = models.IntegerField('Hilos', null=False, blank=False)
-    socket_id = models.ForeignKey("pagina.Socket", on_delete=models.CASCADE)
+    socket_id = models.ForeignKey("pagina.Socket", verbose_name='Socket', on_delete=models.PROTECT, null=False, blank=False)
     graficos = models.CharField('Gráficos integrados', max_length=100, null=False, blank=False)
     cache = models.CharField("Caché", max_length=100, null=False, blank=False)
     manufactura = models.CharField('Manufactura', max_length=50, null=False, blank=False)
     tdp = models.IntegerField('TDP', null=False, blank=False)
     nucleo = models.CharField('Núcleo', max_length=50, null=False, blank=False)
     # Agrega otros campos personalizados según tus necesidades
-
-    REQUIRED_FIELDS = Producto.REQUIRED_FIELDS + ['frecuencia', 'turbo', 'nucleos', 'hilos', 'socket', 'almacenamiento', 'graficos', 'cache', 'manufactura', 'tdp', 'nucleo']
-

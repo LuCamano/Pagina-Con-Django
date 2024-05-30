@@ -12,7 +12,7 @@
                 <div class="card h-100 bg-body-secondary rounded-0">
                     <div class="card-body">
                         <img src="{% static 'img/blank-profile-picture.png'%}" alt="Foto de perfil" class="img-fluid rounded-circle">
-                        <h3 class="card-title text-center">Leopoldo Rivera</h3>
+                        <h3 class="card-title text-center">{{ request.user.get_full_name }}</h3>
                     </div>
                 </div>
             </div>
@@ -28,36 +28,36 @@
                             <div class="row">
                                 <div class="mb-3 col-12 col-md-6">
                                     <label for="nombre" class="form-label">Nombre</label>
-                                    <input type="text" class="form-control rounded-0" id="nombre" value="Leopoldo" disabled required>
+                                    <input type="text" class="form-control rounded-0" id="nombre" value="{{request.user.nombre}}" disabled required>
                                 </div>
                                 <div class="mb-3 col-12 col-md-6">
                                     <label for="apellido" class="form-label">Apellido</label>
-                                    <input type="text" class="form-control rounded-0" id="apellido" name="apellido" value="Rivera" disabled required>
+                                    <input type="text" class="form-control rounded-0" id="apellido" name="apellido" value="{{request.user.apellido}}" disabled required>
                                 </div>
                             </div>
                             <div class="row">
                                 <div class="mb-3 col-12 col-md-6">
                                     <label for="correo" class="form-label">Correo</label>
-                                    <input type="email" class="form-control rounded-0" id="correo" name="correo" value="leo.riv@yahoo.com" inputmode="email" disabled required>
+                                    <input type="email" class="form-control rounded-0" id="correo" name="email" value="{{request.user.email}}" inputmode="email" disabled required>
                                 </div>
                                 <div class="mb-3 col-12 col-md-6">
                                     <label for="telefono" class="form-label">Teléfono</label>
                                     <div class="input-group">
                                         <span class="input-group-text rounded-0">+56</span>
-                                        <input type="tel" class="entrada-numeros form-control rounded-0" id="telefono" name="telefono" value="123456789" inputmode="tel" maxlength="9" disabled required>
+                                        <input type="tel" class="entrada-numeros form-control rounded-0" id="telefono" name="telefono" value="{{request.user.telefono}}" inputmode="tel" maxlength="9" disabled required>
                                     </div>
                                 </div>
                             </div>
                             <div class="row">
                                 <div class="mb-3 col-12">
                                     <label for="rut" class="form-label">RUT</label>
-                                    <input type="text" class="validar-rut form-control rounded-0" id="rut" name="rut" value="12345678-9" maxlength="10" disabled required>
+                                    <input type="text" class="validar-rut form-control rounded-0" id="rut" name="rut" value="{{request.user.run}}" maxlength="10" disabled required>
                                 </div>
                             </div>
                             <div class="row">
                                 <div class="mb-3 col-12">
                                     <label for="direccion" class="form-label">Dirección</label>
-                                    <input type="text" class="form-control rounded-0" id="pac-input" name="direccion" value="Calle 123 # 456" placeholder="Calle 1234, Ciudad" disabled required>
+                                    <input type="text" class="form-control rounded-0" id="pac-input" name="direccion" value="{{request.user.direccion}}" placeholder="Calle 1234, Ciudad" disabled required>
                                     <div id="map"></div>
                                 </div>
                             </div>
